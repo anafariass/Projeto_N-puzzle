@@ -15,7 +15,7 @@ def busca_gulosa(problema, heuristica):
         _, _, no_atual = heapq.heappop(fronteira)
         nos_expandidos += 1
 
-        if problema.eh_estado_objetivo(no_atual['ESTADO']):
+        if problema.estado_objetivo(no_atual['ESTADO']):
             return no_atual, nos_expandidos
 
         for estado_sucessor, acao, custo in problema.expandir(no_atual['ESTADO']):

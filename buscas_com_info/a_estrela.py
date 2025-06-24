@@ -15,7 +15,7 @@ def busca_a_estrela(problema, heuristica):
         _, _, no_atual = heapq.heappop(fronteira)
         nos_expandidos += 1
 
-        if problema.eh_estado_objetivo(no_atual['estado']):
+        if problema.estado_objetivo(no_atual['estado']):
             return no_atual, nos_expandidos
 
         for estado_sucessor, acao, custo in problema.expandir(no_atual['estado']):

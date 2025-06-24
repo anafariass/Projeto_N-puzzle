@@ -8,7 +8,7 @@ def busca_em_largura(problema):
         'custo': 0
     }
 
-    if problema.eh_estado_objetivo(no_inicial['estado']):
+    if problema.estado_objetivo(no_inicial['estado']):
         return no_inicial, 0
 
     fronteira = deque([no_inicial])
@@ -28,7 +28,7 @@ def busca_em_largura(problema):
                     'custo': atual['custo'] + custo
                 }
 
-                if problema.eh_estado_objetivo(sucessor):
+                if problema.estado_objetivo(sucessor):
                     return filho, nos_expandidos
 
                 fronteira.append(filho)

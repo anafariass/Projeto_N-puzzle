@@ -16,7 +16,7 @@ def busca_em_profundidade(problema):
         
         estado_atual = no_atual['estado']
         
-        if problema.eh_estado_objetivo(estado_atual):
+        if problema.estado_objetivo(estado_atual):
             return no_atual
         
         if estado_atual not in explorados:
