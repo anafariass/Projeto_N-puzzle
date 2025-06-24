@@ -8,7 +8,7 @@ class ProblemaNPuzzle:
     def obter_estado_inicial(self):
         return self.estado_inicial
 
-    def eh_estado_objetivo(self, estado):
+    def estado_objetivo(self, estado):
         return estado == self.estado_objetivo
 
     def expandir(self, estado):
