@@ -15,7 +15,7 @@ def busca_com_limite_de_profundidade(problema, limite):
         no_atual = fronteira.pop()
         nos_expandidos += 1
 
-        if problema.eh_estado_objetivo(no_atual['estado']):
+        if problema.estado_objetivo(no_atual['estado']):
             return no_atual, nos_expandidos, False
 
      
