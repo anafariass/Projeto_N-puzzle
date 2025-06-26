@@ -17,7 +17,7 @@ def imprimir_tabuleiro(estado):
         print(f"[{linha_str}]")
     print()
 
-def imprimir_resultado(algoritmo_nome, resultado_no, nos_expandidos, tempo_exec):    
+def imprimir_resultado(algoritmo_nome, resultado_no, nos_expandidos, tempo_exec, profundidade_maxima=None):    
     print(f"\n--- Resultado para {algoritmo_nome} ---")
     
     if resultado_no:
@@ -25,6 +25,8 @@ def imprimir_resultado(algoritmo_nome, resultado_no, nos_expandidos, tempo_exec)
         
         print(f" Solução encontrada com {len(caminho_estados) - 1} passos.")
         print(f" Nós expandidos: {nos_expandidos}")
+        if profundidade_maxima is not None:
+            print(f" Profundidade máxima atingida: {profundidade_maxima}")
         print(f" Tempo de execução: {tempo_exec:.4f} segundos.")
         ver_caminho = input("Deseja exibir o caminho completo estado por estado? (s/n): ").lower()
         if ver_caminho == 's':
@@ -42,8 +44,8 @@ def imprimir_resultado(algoritmo_nome, resultado_no, nos_expandidos, tempo_exec)
 def principal():
     
     # 8-Puzzle
-    estado_inicial_8 = ((1, 2, 3), (4, 0, 5), (6, 7, 8))
-    estado_objetivo_8 = ((0, 1, 2), (3, 4, 5), (6, 7, 8))
+    estado_inicial_8 = ((1, 2, 3), (4, 5, 6), (7, 0, 8))
+    estado_objetivo_8 = ((1, 2, 3), (4, 5, 6), (7, 8, 0))
 
     # 15-Puzzle
     estado_inicial_15 = ((1, 3,2, 4), (5, 6, 0, 8), (9, 10, 7, 12), (13, 14, 11, 15))
@@ -110,12 +112,13 @@ def principal():
             
             if heuristica:
                 resultado, nos_expandidos = funcao_algo(problema, heuristica)
+                profundidade_maxima = None  # Algoritmos com heurística não retornam profundidade ainda
             else:
-                resultado, nos_expandidos = funcao_algo(problema)
+                resultado, nos_expandidos, profundidade_maxima = funcao_algo(problema)
                 
             fim_tempo = time.time()
             
-            imprimir_resultado(nome_algo, resultado, nos_expandidos, fim_tempo - inicio_tempo)
+            imprimir_resultado(nome_algo, resultado, nos_expandidos, fim_tempo - inicio_tempo, profundidade_maxima)
             
             input("\nPressione Enter para voltar ao menu de algoritmos...")
         else:
