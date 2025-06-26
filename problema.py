@@ -2,23 +2,23 @@
 class ProblemaNPuzzle:
     def __init__(self, estado_inicial, estado_objetivo):
         self.estado_inicial = estado_inicial
-        self.estado_objetivo = estado_objetivo
+        self._estado_objetivo = estado_objetivo  
         self.posicoes_objetivo = self._calcular_posicoes_objetivo()
 
     def obter_estado_inicial(self):
         return self.estado_inicial
 
     def estado_objetivo(self, estado):
-        return estado == self.estado_objetivo
+        return estado == self._estado_objetivo 
 
     def expandir(self, estado):
         sucessores = []
         linha, coluna = self._encontrar_posicao(estado, 0)
         direcoes = {
-            'Cima': (linha - 1, coluna),
-            'Baixo': (linha + 1, coluna),
             'Esquerda': (linha, coluna - 1),
-            'Direita': (linha, coluna + 1)
+            'Direita': (linha, coluna + 1),
+            'Cima': (linha - 1, coluna),
+            'Baixo': (linha + 1, coluna)
         }
 
         for acao, (nova_linha, nova_coluna) in direcoes.items():
@@ -40,7 +40,7 @@ class ProblemaNPuzzle:
 
     def _calcular_posicoes_objetivo(self):
         posicoes = {}
-        for linha_atual, linha in enumerate(self.estado_objetivo):
+        for linha_atual, linha in enumerate(self._estado_objetivo):
             for coluna_atual, peca in enumerate(linha):
                 if peca != 0:
                     posicoes[peca] = (linha_atual, coluna_atual)
