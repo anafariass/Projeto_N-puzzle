@@ -1,7 +1,7 @@
 
 def pecas_fora_do_lugar(estado, problema):
     pecas_deslocadas = 0
-    estado_objetivo = problema.estado_objetivo
+    estado_objetivo = problema._estado_objetivo  
     for i in range(len(estado)):
         for j in range(len(estado[i])):
             if estado[i][j] != estado_objetivo[i][j] and estado[i][j] != 0:
