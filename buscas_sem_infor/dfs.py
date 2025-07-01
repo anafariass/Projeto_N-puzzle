@@ -24,12 +24,12 @@ def busca_em_profundidade(problema):
             continue
             
         explorados.add(estado_atual)
-        nos_expandidos += 1
-        
         profundidade_maxima = max(profundidade_maxima, no_atual['profundidade'])
         
         if problema.estado_objetivo(estado_atual):
             return no_atual, nos_expandidos, profundidade_maxima
+        
+        nos_expandidos += 1
         
         for estado_sucessor, acao, custo in problema.expandir(estado_atual):
             if estado_sucessor not in explorados:
