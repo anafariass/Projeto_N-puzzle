@@ -1,4 +1,3 @@
-
 def pecas_fora_do_lugar(estado, problema):
     pecas_deslocadas = 0
     estado_objetivo = problema._estado_objetivo  
