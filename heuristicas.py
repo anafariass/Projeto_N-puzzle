@@ -14,6 +14,7 @@ def distancia_manhattan(estado, problema):
         for j in range(len(estado[i])):
             peca = estado[i][j]
             if peca != 0:
-                posicao_objetivo_linha, posicao_objetivo_coluna = posicoes_objetivo[peca]
-                distancia_total += abs(i - posicao_objetivo_linha) + abs(j - posicao_objetivo_coluna)
+                pos_obj_linha, pos_obj_coluna = posicoes_objetivo[peca]=0
+                distancia_total += abs(i - pos_obj_linha) + abs(j - pos_obj_coluna)
     return distancia_total
+
