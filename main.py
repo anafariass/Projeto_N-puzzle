@@ -37,20 +37,22 @@ def imprimir_resultado(algoritmo_nome, resultado_no, nos_expandidos, tempo_exec,
                 time.sleep(0.5) 
     else:
         print(" Nenhuma solução foi encontrada.")
+        print(f" Nós expandidos: {nos_expandidos}")
+        print(f" Tempo de execução: {tempo_exec:.4f} segundos.")
     
     print("-" * 35)
 
 
 def principal():
-    
+
     # 8-Puzzle
     estado_inicial_8 = ((1, 2, 3),
                         (4, 0, 5),
                         (6, 7, 8))
-    
+
     estado_objetivo_8 = ((1, 2, 3), 
                          (4, 5, 6), 
-                         (7, 8 , 0))
+                         (7, 8, 0))
 
     # 15
     estado_inicial_15 = ((1, 2, 3, 4), 
