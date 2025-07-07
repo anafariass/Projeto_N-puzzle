@@ -7,7 +7,7 @@ from buscas_sem_infor.dfs import busca_em_profundidade
 from buscas_sem_infor.ids import busca_em_aprofundamento_iterativo
 from buscas_com_info.gulosa import busca_gulosa
 from buscas_com_info.a_estrela import busca_a_estrela
-from utils.caminho import obter_caminho_com_estados, obter_sequencia_de_acoes
+from utils.caminho import obter_caminho_com_estados
 
 
 def imprimir_tabuleiro(estado):
@@ -37,20 +37,22 @@ def imprimir_resultado(algoritmo_nome, resultado_no, nos_expandidos, tempo_exec,
                 time.sleep(0.5) 
     else:
         print(" Nenhuma solução foi encontrada.")
+        print(f" Nós expandidos: {nos_expandidos}")
+        print(f" Tempo de execução: {tempo_exec:.4f} segundos.")
     
     print("-" * 35)
 
 
 def principal():
-    
+
     # 8-Puzzle
     estado_inicial_8 = ((1, 2, 3),
                         (4, 0, 5),
                         (6, 7, 8))
-    
+
     estado_objetivo_8 = ((1, 2, 3), 
                          (4, 5, 6), 
-                         (7, 8 , 0))
+                         (7, 8, 0))
 
     # 15
     estado_inicial_15 = ((1, 2, 3, 4), 
