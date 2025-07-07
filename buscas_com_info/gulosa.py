@@ -1,8 +1,8 @@
 import heapq
 
 def busca_gulosa(problema, heuristica):
-    no_inicial = {'estado': problema.obter_estado_inicial(), 'pai': None, 'acao': None, 'custo': 0}
-    
+    no_inicial = {'estado': problema.obter_estado_inicial(), 'pai': None, 'acao': None, 'custo': 0} # eh como o no eh representado
+     
     fronteira = []
     prioridade = heuristica(no_inicial['estado'], problema)
     contador = 0
@@ -20,7 +20,11 @@ def busca_gulosa(problema, heuristica):
 
         for estado_sucessor, acao, custo in problema.expandir(no_atual['estado']):
             if estado_sucessor not in explorados:
-                no_filho = {'estado': estado_sucessor, 'pai': no_atual, 'acao': acao, 'custo': no_atual['custo'] + custo}
+                no_filho = {'estado': estado_sucessor,
+                            'pai': no_atual, 
+                            'acao': acao, 
+                            'custo': no_atual['custo'] + custo}
+                
                 explorados.add(estado_sucessor)
                 
                 prioridade = heuristica(estado_sucessor, problema)

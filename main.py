@@ -7,7 +7,7 @@ from buscas_sem_infor.dfs import busca_em_profundidade
 from buscas_sem_infor.ids import busca_em_aprofundamento_iterativo
 from buscas_com_info.gulosa import busca_gulosa
 from buscas_com_info.a_estrela import busca_a_estrela
-from utils.caminho import obter_caminho_com_estados, obter_sequencia_de_acoes
+from utils.caminho import obter_caminho_com_estados
 
 
 def imprimir_tabuleiro(estado):
